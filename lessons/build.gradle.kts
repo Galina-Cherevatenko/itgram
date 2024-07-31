@@ -1,10 +1,9 @@
 plugins {
-    alias(libs.plugins.kotlin.jvm) apply false
+    kotlin("jvm") apply false
 }
 
 group = "ru.otus"
 version = "1.0-SNAPSHOT"
-
 
 repositories {
     mavenCentral()
