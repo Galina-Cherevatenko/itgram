@@ -1,14 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/build-plugin" name="backend-build">
+                <projects>
+                  <project path="$PROJECT_DIR$/build-plugin" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/itgram-be" name="itgram-be">
+                <projects>
+                  <project path="$PROJECT_DIR$/itgram-be" />
+                  <project path="$PROJECT_DIR$/itgram-be/itgram-tmp" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/lessons" name="lessons">
+                <projects>
+                  <project path="$PROJECT_DIR$/lessons" />
+                  <project path="$PROJECT_DIR$/lessons/m2l2-coroutines" />
+                  <project path="$PROJECT_DIR$/lessons/m2l3-flows" />
+                  <project path="$PROJECT_DIR$/lessons/m2l6-gradle" />
+                  <project path="$PROJECT_DIR$/lessons/m2l6-gradle/sub1" />
+                  <project path="$PROJECT_DIR$/lessons/m2l6-gradle/sub1/ssub1" />
+                  <project path="$PROJECT_DIR$/lessons/m2l6-gradle/sub1/ssub2" />
+                  <project path="$PROJECT_DIR$/lessons/m2l6-gradle/sub2" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="" />
+        <option name="gradleJvm" value="corretto-21" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/m1l1-first" />
+            <option value="$PROJECT_DIR$/build-plugin" />
+            <option value="$PROJECT_DIR$/itgram-be" />
+            <option value="$PROJECT_DIR$/itgram-be/itgram-tmp" />
+            <option value="$PROJECT_DIR$/lessons" />
+            <option value="$PROJECT_DIR$/lessons/m2l2-coroutines" />
+            <option value="$PROJECT_DIR$/lessons/m2l3-flows" />
+            <option value="$PROJECT_DIR$/lessons/m2l6-gradle" />
+            <option value="$PROJECT_DIR$/lessons/m2l6-gradle/sub1" />
+            <option value="$PROJECT_DIR$/lessons/m2l6-gradle/sub1/ssub1" />
+            <option value="$PROJECT_DIR$/lessons/m2l6-gradle/sub1/ssub2" />
+            <option value="$PROJECT_DIR$/lessons/m2l6-gradle/sub2" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -10,6 +10,5 @@ plugins {
 }
 rootProject.name = "itgram"
 
-include("m1l1-first")
-
-
+includeBuild("lessons")
+includeBuild("itgram-be")
