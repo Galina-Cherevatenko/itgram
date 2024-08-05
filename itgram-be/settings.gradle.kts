@@ -25,4 +25,4 @@ plugins {
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-include(":itgram-tmp")
+include(":itgram-api-v1-jackson")

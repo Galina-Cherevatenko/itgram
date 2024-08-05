@@ -15,7 +15,7 @@
               <build path="$PROJECT_DIR$/itgram-be" name="itgram-be">
                 <projects>
                   <project path="$PROJECT_DIR$/itgram-be" />
-                  <project path="$PROJECT_DIR$/itgram-be/itgram-tmp" />
+                  <project path="$PROJECT_DIR$/itgram-be/itgram-api-v1-jackson" />
                 </projects>
               </build>
               <build path="$PROJECT_DIR$/lessons" name="lessons">
@@ -40,7 +40,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/build-plugin" />
             <option value="$PROJECT_DIR$/itgram-be" />
-            <option value="$PROJECT_DIR$/itgram-be/itgram-tmp" />
+            <option value="$PROJECT_DIR$/itgram-be/itgram-api-v1-jackson" />
             <option value="$PROJECT_DIR$/lessons" />
             <option value="$PROJECT_DIR$/lessons/m2l2-coroutines" />
             <option value="$PROJECT_DIR$/lessons/m2l3-flows" />
