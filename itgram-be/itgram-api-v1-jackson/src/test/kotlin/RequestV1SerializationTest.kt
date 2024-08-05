@@ -1,9 +1,7 @@
-package ru.otus.otuskotlin.marketplace.api.v1
-
-import ru.otus.api.v1.models.*
+import junit.framework.TestCase.assertEquals
+import ru.itgram.api.v1.models.*
 import kotlin.test.Test
 import kotlin.test.assertContains
-import kotlin.test.assertEquals
 
 class RequestV1SerializationTest {
     private val request = PublicationCreateRequest(
@@ -12,8 +10,8 @@ class RequestV1SerializationTest {
             stub = PublicationRequestDebugStubs.BAD_TITLE
         ),
         publication = PublicationCreateObject(
-            title = "ad title",
-            description = "ad description",
+            title = "title",
+            description = "description",
             publicationCategory = PublicationCategory.POST,
             visibility = PublicationVisibility.PUBLIC,
         )
@@ -23,7 +21,7 @@ class RequestV1SerializationTest {
     fun serialize() {
         val json = apiV1Mapper.writeValueAsString(request)
 
-        assertContains(json, Regex("\"title\":\\s*\"ad title\""))
+        assertContains(json, Regex("\"title\":\\s*\"title\""))
         assertContains(json, Regex("\"mode\":\\s*\"stub\""))
         assertContains(json, Regex("\"stub\":\\s*\"badTitle\""))
         assertContains(json, Regex("\"requestType\":\\s*\"create\""))
