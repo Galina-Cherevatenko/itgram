@@ -12,6 +12,7 @@ pluginManagement {
     includeBuild("../build-plugin")
     plugins {
         id("build-jvm") apply false
+        id("build-kmp") apply false
     }
     repositories {
         mavenCentral()
@@ -26,3 +27,6 @@ plugins {
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(":itgram-api-v1-jackson")
+include(":itgram-api-v1-mappers")
+
+include(":itgram-common")
