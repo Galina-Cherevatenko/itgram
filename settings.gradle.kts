@@ -10,5 +10,4 @@ plugins {
 }
 rootProject.name = "itgram"
 
-includeBuild("lessons")
 includeBuild("itgram-be")

@@ -8,6 +8,10 @@ gradlePlugin {
             id = "build-jvm"
             implementationClass = "ru.otus.itgram.plugin.BuildPluginJvm"
         }
+        register("build-kmp") {
+            id = "build-kmp"
+            implementationClass = "ru.otus.itgram.plugin.BuildPluginMultiplatform"
+        }
     }
 }
 

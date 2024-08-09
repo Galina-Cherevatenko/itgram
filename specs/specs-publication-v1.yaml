@@ -1,0 +1,413 @@
+openapi: 3.0.4
+info:
+  title: "Itgram"
+  description: Human needs human. Professional social network
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/v1
+tags:
+  - name: publication
+    description: Публикация (о старте работы, профессиональных достижениях, объявление)
+paths:
+  /publication/create:
+    post:
+      tags:
+        - publication
+      summary: Create publication
+      operationId: publicationCreate
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublicationCreateRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicationCreateResponse'
+  /publication/read:
+    post:
+      tags:
+        - publication
+      summary: Read publication
+      operationId: publicationRead
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublicationReadRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicationReadResponse'
+  /publication/update:
+    post:
+      tags:
+        - publication
+      summary: Update publication
+      operationId: publicationUpdate
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublicationUpdateRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicationUpdateResponse'
+  /publication/delete:
+    post:
+      tags:
+        - publication
+      summary: Delete publication
+      operationId: publicationDelete
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublicationDeleteRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicationDeleteResponse'
+  /publication/search:
+    post:
+      tags:
+        - publication
+      summary: Search publication
+      operationId: publicationSearch
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublicationSearchRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicationSearchResponse'
+
+components:
+  schemas:
+
+    IRequest:
+      type: object
+      description: Базовый интерфейс для всех запросов
+      properties:
+        requestType:
+          type: string
+          description: Поле-дескриминатор для вычисления типа запроса
+          example: create
+      discriminator:
+        propertyName: requestType
+        mapping:
+          create: '#/components/schemas/PublicationCreateRequest'
+          read:   '#/components/schemas/PublicationReadRequest'
+          update: '#/components/schemas/PublicationUpdateRequest'
+          delete: '#/components/schemas/PublicationDeleteRequest'
+          search: '#/components/schemas/PublicationSearchRequest'
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        group:
+          type: string
+        field:
+          type: string
+        message:
+          type: string
+
+    ResponseResult:
+      type: string
+      enum:
+        - success
+        - error
+
+    IResponse:
+      type: object
+      description: Базовый интерфейс для всех ответов
+      properties:
+        responseType:
+          type: string
+          description: Поле-дескриминатор для вычисления типа запроса
+          example: create
+        result:
+          $ref: '#/components/schemas/ResponseResult'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+
+      discriminator:
+        propertyName: responseType
+        mapping:
+          create: '#/components/schemas/PublicationCreateResponse'
+          read:   '#/components/schemas/PublicationReadResponse'
+          update: '#/components/schemas/PublicationUpdateResponse'
+          delete: '#/components/schemas/PublicationDeleteResponse'
+          search: '#/components/schemas/PublicationSearchResponse'
+          init: '#/components/schemas/PublicationInitResponse'
+
+
+    UserId:
+      type: string
+      description: Идентификатор пользователя
+    PublicationId:
+      type: string
+      description: Идентификатор публикации
+    PublicationLock:
+      type: string
+      description: Версия оптимистичной блокировки
+
+    BasePublication:
+      type: object
+      description: Объект описывает свойства, одинаковые для create и update
+      properties:
+        title:
+          type: string
+          description: Заголовок публикации
+        description:
+          type: string
+          description: Описание публикации
+        publicationCategory:
+          $ref: '#/components/schemas/PublicationCategory'
+        visibility:
+          $ref: '#/components/schemas/PublicationVisibility'
+
+    PublicationCategory:
+      type: string
+      description: 'Тип публикации: пост, старт работы, объявление'
+      enum:
+        - post
+        - start
+        - ad
+
+    PublicationVisibility:
+      type: string
+      description: 'Тип видимости объявления. Возможные значения: видит только владелец, только зарегистрированный в системе пользователь, видимо всем'
+      enum:
+        - ownerOnly
+        - registeredOnly
+        - public
+
+    PublicationInitResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+
+    PublicationCreateObject:
+      allOf:
+        - $ref: '#/components/schemas/BasePublication'
+
+    PublicationCreateRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/PublicationRequestDebug'
+        - type: object
+          properties:
+            publication:
+              $ref: '#/components/schemas/PublicationCreateObject'
+
+    PublicationReadObject:
+      allOf:
+        - type: object
+          properties:
+            id:
+              $ref: '#/components/schemas/PublicationId'
+
+    PublicationReadRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/PublicationRequestDebug'
+        - type: object
+          properties:
+            publication:
+              $ref: '#/components/schemas/PublicationReadObject'
+
+    PublicationUpdateObject:
+      allOf:
+        - $ref: '#/components/schemas/BasePublication'
+        - type: object
+          properties:
+            id:
+              $ref: '#/components/schemas/PublicationId'
+            lock:
+              $ref: '#/components/schemas/PublicationLock'
+
+    PublicationUpdateRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/PublicationRequestDebug'
+        - type: object
+          properties:
+            publication:
+              $ref: '#/components/schemas/PublicationUpdateObject'
+
+    PublicationDeleteObject:
+      allOf:
+        - type: object
+          properties:
+            id:
+              $ref: '#/components/schemas/PublicationId'
+            lock:
+              $ref: '#/components/schemas/PublicationLock'
+
+    PublicationDeleteRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/PublicationRequestDebug'
+        - type: object
+          properties:
+            publication:
+              $ref: '#/components/schemas/PublicationDeleteObject'
+
+    PublicationSearchFilter:
+      type: object
+      description: Набор фильтров для поиска
+      properties:
+        searchString:
+          type: string
+          description: Поисковая строка, которая будет искаться в объявлениях
+
+    PublicationSearchRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/PublicationRequestDebug'
+        - type: object
+          properties:
+            publicationFilter:
+              $ref: '#/components/schemas/PublicationSearchFilter'
+
+    PublicationResponseObject:
+      allOf:
+        - $ref: '#/components/schemas/BasePublication'
+        - type: object
+          description: Объект, который возвращается в ответе бэкенда
+          properties:
+            id:
+              $ref: '#/components/schemas/PublicationId'
+            ownerId:
+              $ref: '#/components/schemas/UserId'
+            lock:
+              $ref: '#/components/schemas/PublicationLock'
+            permissions:
+              type: array
+              uniqueItems: true
+              items:
+                $ref: '#/components/schemas/PublicationPermissions'
+
+    PublicationPermissions:
+      type: string
+      description: Доступы для клиента для операций над публикациями
+      enum:
+        - read
+        - update
+        - delete
+        - makeVisiblePublic
+        - makeVisibleOwn
+        - makeVisibleGroup
+
+    PublicationResponseSingle:
+      allOf:
+        - type: object
+          description: Ответ с одним объектом публикации
+          properties:
+            publication:
+              $ref: '#/components/schemas/PublicationResponseObject'
+
+    PublicationResponseMulti:
+      allOf:
+        - type: object
+          description: Список найденных объектов
+          properties:
+            publications:
+              type: array
+              items:
+                $ref: '#/components/schemas/PublicationResponseObject'
+
+    PublicationCreateResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/PublicationResponseSingle'
+
+    PublicationReadResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/PublicationResponseSingle'
+
+    PublicationUpdateResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/PublicationResponseSingle'
+
+    PublicationDeleteResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/PublicationResponseSingle'
+
+    PublicationSearchResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/PublicationResponseMulti'
+
+    # STUBS ======================
+    PublicationRequestDebugMode:
+      type: string
+      enum:
+        - prod
+        - test
+        - stub
+
+    PublicationRequestDebug:
+      type: object
+      properties:
+        debug:
+          $ref: '#/components/schemas/PublicationDebug'
+
+    PublicationDebug:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/PublicationRequestDebugMode'
+        stub:
+          $ref: '#/components/schemas/PublicationRequestDebugStubs'
+
+    PublicationRequestDebugStubs:
+      type: string
+      description: Перечисления всех стабов
+      enum:
+        - success
+        - notFound
+        - badId
+        - badTitle
+        - badDescription
+        - badVisibility
+        - cannotDelete
+        - badSearchString
