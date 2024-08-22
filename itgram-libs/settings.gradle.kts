@@ -1,4 +1,4 @@
-rootProject.name = "itgram-be"
+rootProject.name = "ok-marketplace-libs"
 
 dependencyResolutionManagement {
     versionCatalogs {
@@ -24,14 +24,7 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
 }
 
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-include(":itgram-api-v1-jackson")
-include(":itgram-api-v1-mappers")
-
-include(":itgram-common")
-include(":itgram-biz")
-include(":itgram-stubs")
-
-include(":itgram-app-common")
-include(":itgram-app-spring")
+// include(":ok-marketplace-lib-logging-common")
+// include(":ok-marketplace-lib-logging-kermit")
+// include(":ok-marketplace-lib-logging-logback")
+// include(":ok-marketplace-lib-logging-socket")
