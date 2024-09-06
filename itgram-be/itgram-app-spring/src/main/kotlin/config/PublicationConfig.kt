@@ -1,4 +1,11 @@
-package config
+package ru.itgram.app.spring.config
+
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+import ru.itgram.biz.MkplPublicationProcessor
+import ru.itgram.common.MkplCorSettings
+import ru.itgram.logging.common.MpLoggerProvider
+import ru.itgram.logging.jvm.mpLoggerLogback
 
 @Suppress("unused")
 @Configuration

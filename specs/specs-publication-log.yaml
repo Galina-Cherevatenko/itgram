@@ -22,7 +22,7 @@ components:
         source:
           type: string
         publication:
-          $ref: '#/components/schemas/MkplLogModel'
+          $ref: '#/components/schemas/MkplPublicationLogModel'
         errors:
           type: array
           items:
@@ -46,13 +46,13 @@ components:
             - init
             - finish
         requestPublication:
-          $ref: '#/components/schemas/AdLog'
+          $ref: '#/components/schemas/PublicationLog'
         responsePublication:
-          $ref: '#/components/schemas/AdLog'
+          $ref: '#/components/schemas/PublicationLog'
         responsePublications:
           type: array
           items:
-            $ref: '#/components/schemas/AdLog'
+            $ref: '#/components/schemas/PublicationLog'
 
     ErrorLogModel:
       title: Модель лога для ошибки
@@ -68,7 +68,7 @@ components:
           type: string
 
     PublicationLog:
-      title: Модель лога для объявления
+      title: Модель лога для публикации
       type: object
       properties:
         id:

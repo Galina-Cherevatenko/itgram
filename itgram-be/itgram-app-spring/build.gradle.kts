@@ -23,6 +23,7 @@ dependencies {
     // Внутренние модели
     implementation(project(":itgram-common"))
     implementation(project(":itgram-app-common"))
+    implementation("ru.itgram.libs:itgram-lib-logging-logback")
 
     // v1 api
     implementation(project(":itgram-api-v1-jackson"))
@@ -38,6 +39,22 @@ dependencies {
 
     // stubs
     testImplementation(project(":itgram-stubs"))
+}
+
+tasks {
+    withType<ProcessResources> {
+        val files = listOf("spec-v1").map {
+            rootProject.ext[it]
+        }
+        from(files) {
+            into("/static")
+            filter {
+                // Устанавливаем версию в сваггере
+                it.replace("\${VERSION_APP}", project.version.toString())
+            }
+
+        }
+    }
 }
 
 tasks.withType<Test> {

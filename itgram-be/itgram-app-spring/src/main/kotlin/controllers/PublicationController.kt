@@ -1,14 +1,16 @@
-package controllers
+package ru.itgram.app.spring.controllers
 
 import org.springframework.web.bind.annotation.*
 import ru.itgram.api.v1.models.*
-import config.MkplAppSettings
+import ru.itgram.app.spring.config.MkplAppSettings
 import controllerHelper
+import src.main.kotlin.fromTransport
+import src.main.kotlin.toTransportPublication
 import kotlin.reflect.KClass
 
 @Suppress("unused")
 @RestController
-@RequestMapping("v1/ad")
+@RequestMapping("v1/publication")
 class PublicationController(
     private val appSettings: MkplAppSettings
 ) {

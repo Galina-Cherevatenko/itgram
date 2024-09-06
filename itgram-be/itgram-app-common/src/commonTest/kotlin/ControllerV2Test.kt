@@ -1,2 +1,0 @@
-class ControllerV2Test {
-}

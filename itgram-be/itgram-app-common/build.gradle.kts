@@ -12,7 +12,7 @@ kotlin {
 
                 // transport models
                 implementation(project(":itgram-common"))
-                // implementation(project(":itgram-api-log1"))
+                implementation(project(":itgram-api-log"))
 
                 implementation(project(":itgram-biz"))
             }

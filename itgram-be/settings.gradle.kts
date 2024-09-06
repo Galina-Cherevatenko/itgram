@@ -28,6 +28,7 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(":itgram-api-v1-jackson")
 include(":itgram-api-v1-mappers")
+include(":itgram-api-log")
 
 include(":itgram-common")
 include(":itgram-biz")

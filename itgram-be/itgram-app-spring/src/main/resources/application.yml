@@ -21,4 +21,4 @@ springdoc:
     use-root-path: true
     urls:
       - name: v1
-        url: specs-ad-v1.yaml
+        url: specs-publication-v1.yaml

@@ -19,7 +19,7 @@ subprojects {
 
 ext {
     val specDir = layout.projectDirectory.dir("../specs")
-    set("spec-v1", specDir.file("specs-publication-v1.yaml").toString())
+    set("spec", specDir.file("specs-publication-v1.yaml").toString())
 }
 
 tasks {
@@ -30,3 +30,4 @@ tasks {
         }
     }
 }
+

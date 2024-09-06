@@ -4,7 +4,7 @@ import ru.itgram.common.models.MkplPublication
 import ru.itgram.common.models.MkplPublicationCategory
 import ru.itgram.common.models.MkplPublicationId
 
-object MkplPublicationStubMkplAdStub {
+object MkplPublicationStub {
     fun get(): MkplPublication = PUBLICATION_POST_1.copy()
 
     fun prepareResult(block: MkplPublication.() -> Unit): MkplPublication = get().apply(block)
