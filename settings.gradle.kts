@@ -10,4 +10,6 @@ plugins {
 }
 rootProject.name = "itgram"
 
+
 includeBuild("itgram-be")
+includeBuild("itgram-libs")

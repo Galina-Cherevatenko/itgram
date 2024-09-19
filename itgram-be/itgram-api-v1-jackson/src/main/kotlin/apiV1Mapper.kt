@@ -1,7 +1,6 @@
 import com.fasterxml.jackson.databind.MapperFeature
 import com.fasterxml.jackson.databind.json.JsonMapper
-import ru.itgram.api.v1.models.IRequest
-import ru.itgram.api.v1.models.IResponse
+import ru.itgram.api.v1.models.*
 
 val apiV1Mapper = JsonMapper.builder().run {
 //    configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)

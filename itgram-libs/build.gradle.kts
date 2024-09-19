@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform) apply false
 }
 
-group = "ru.itgram"
+group = "ru.itgram.libs"
 version = "1.0-SNAPSHOT"
 
 allprojects {
@@ -19,8 +19,7 @@ subprojects {
 
 ext {
     val specDir = layout.projectDirectory.dir("../specs")
-    set("spec-v1", specDir.file("specs-publication-v1.yaml").toString())
-    set("spec-log", specDir.file("specs-publication-log.yaml").toString())
+    set("spec", specDir.file("specs-publication-v1.yaml").toString())
 }
 
 tasks {
@@ -31,3 +30,4 @@ tasks {
         }
     }
 }
+

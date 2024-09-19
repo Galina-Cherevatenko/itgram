@@ -2,23 +2,30 @@ plugins {
     id("build-kmp")
 }
 
-group = rootProject.group
-version = rootProject.version
-
 kotlin {
+
     sourceSets {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
 
-                api(libs.kotlinx.datetime)
-                api("ru.itgram.libs:itgram-lib-logging-common")
+                implementation(project(":itgram-common"))
             }
         }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
+            }
+        }
+        val jvmMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib"))
+            }
+        }
+        val jvmTest by getting {
+            dependencies {
+                implementation(kotlin("test-junit"))
             }
         }
     }
