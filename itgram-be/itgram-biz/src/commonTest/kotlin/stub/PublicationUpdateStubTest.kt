@@ -1,6 +1,6 @@
 package ru.itgram.biz.stub
 
-import MkplPublicationProcessor
+import ru.itgram.biz.MkplPublicationProcessor
 import kotlinx.coroutines.test.runTest
 import ru.itgram.common.MkplContext
 import ru.itgram.common.models.*

@@ -1,3 +1,4 @@
+import ru.itgram.biz.MkplPublicationProcessor
 import ru.itgram.common.MkplCorSettings
 
 interface IMkplAppSettings {

@@ -1,3 +1,5 @@
+package ru.itgram.biz
+
 import ru.itgram.biz.general.initStatus
 import ru.itgram.biz.general.operation
 import ru.itgram.biz.general.stubs
@@ -11,7 +13,6 @@ import ru.itgram.biz.stubs.*
 import ru.itgram.biz.validation.*
 import ru.itgram.common.models.MkplPublicationLock
 
-@Suppress("unused", "RedundantSuspendModifier")
 class MkplPublicationProcessor(
     private val corSettings: MkplCorSettings = MkplCorSettings.NONE
 ) {

@@ -1,7 +1,7 @@
 package ru.itgram.biz.validation
 
-import MkplPublicationProcessor
 import kotlinx.coroutines.test.runTest
+import ru.itgram.biz.MkplPublicationProcessor
 import ru.itgram.common.MkplContext
 import ru.itgram.common.models.*
 import kotlin.test.assertContains

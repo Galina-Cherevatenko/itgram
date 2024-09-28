@@ -1,7 +1,7 @@
 package config
 
 import IMkplAppSettings
-import MkplPublicationProcessor
+import ru.itgram.biz.MkplPublicationProcessor
 import ru.itgram.common.MkplCorSettings
 
 data class MkplAppSettings(

@@ -12,7 +12,7 @@ import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.http.MediaType
 import org.springframework.test.web.reactive.server.WebTestClient
 import org.springframework.web.reactive.function.BodyInserters
-import MkplPublicationProcessor
+import ru.itgram.biz.MkplPublicationProcessor
 import ru.itgram.common.MkplContext
 import ru.itgram.common.models.MkplPublicationCategory
 import kotlin.test.Test

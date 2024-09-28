@@ -1,6 +1,6 @@
 package ru.itgram.biz.validation
 
-import MkplPublicationProcessor
+import ru.itgram.biz.MkplPublicationProcessor
 import ru.itgram.common.MkplCorSettings
 import ru.itgram.common.models.MkplCommand
 
