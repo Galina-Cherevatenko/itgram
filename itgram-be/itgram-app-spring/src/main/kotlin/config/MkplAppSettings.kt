@@ -1,7 +1,7 @@
 package ru.itgram.app.spring.config
 
 import IMkplAppSettings
-import ru.itgram.biz.MkplPublicationProcessor
+import MkplPublicationProcessor
 import ru.itgram.common.MkplCorSettings
 
 class MkplAppSettings(
