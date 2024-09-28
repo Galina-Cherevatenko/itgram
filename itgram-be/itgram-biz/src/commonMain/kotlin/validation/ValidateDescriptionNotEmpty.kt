@@ -1,4 +1,21 @@
-package validation
+package ru.itgram.biz.validation
 
-class ValidateDescriptionNotEmpty {
+import ru.itgram.common.MkplContext
+import ru.itgram.common.helpers.errorValidation
+import ru.itgram.common.helpers.fail
+import ru.itgram.cor.ICorChainDsl
+import ru.itgram.cor.worker
+
+fun ICorChainDsl<MkplContext>.validateDescriptionNotEmpty(title: String) = worker {
+    this.title = title
+    on { publicationValidating.description.isEmpty() }
+    handle {
+        fail(
+            errorValidation(
+                field = "description",
+                violationCode = "empty",
+                description = "field must not be empty"
+            )
+        )
+    }
 }

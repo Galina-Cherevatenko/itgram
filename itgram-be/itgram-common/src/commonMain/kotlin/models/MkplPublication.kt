@@ -10,6 +10,10 @@ data class MkplPublication(
     var lock: MkplPublicationLock = MkplPublicationLock.NONE,
     val permissionsClient: MutableSet<MkplPublicationPermissionClient> = mutableSetOf()
 ) {
+    fun deepCopy(): MkplPublication = copy(
+        permissionsClient = permissionsClient.toMutableSet(),
+    )
+
     fun isEmpty() = this == NONE
 
     companion object {

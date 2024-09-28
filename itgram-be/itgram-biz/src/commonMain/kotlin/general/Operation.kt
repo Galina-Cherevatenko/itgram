@@ -1,4 +1,4 @@
-package general
+package ru.itgram.biz.general
 
 import ru.itgram.common.MkplContext
 import ru.itgram.common.models.MkplCommand

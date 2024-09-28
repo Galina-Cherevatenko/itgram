@@ -18,6 +18,12 @@ data class MkplContext(
     var publicationRequest: MkplPublication = MkplPublication(),
     var publicationFilterRequest: MkplPublicationFilter = MkplPublicationFilter(),
 
+    var publicationValidating: MkplPublication = MkplPublication(),
+    var publicationFilterValidating: MkplPublicationFilter = MkplPublicationFilter(),
+
+    var publicationValidated: MkplPublication = MkplPublication(),
+    var publicationFilterValidated: MkplPublicationFilter = MkplPublicationFilter(),
+
     var publicationResponse: MkplPublication = MkplPublication(),
     var publicationsResponse: MutableList<MkplPublication> = mutableListOf(),
 

@@ -1,4 +1,4 @@
-package stubs
+package ru.itgram.biz.stubs
 
 import ru.itgram.common.MkplContext
 import ru.itgram.common.models.MkplState
