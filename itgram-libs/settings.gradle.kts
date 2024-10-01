@@ -26,3 +26,5 @@ plugins {
 
 include(":itgram-lib-logging-common")
 include(":itgram-lib-logging-logback")
+
+include(":itgram-lib-cor")
