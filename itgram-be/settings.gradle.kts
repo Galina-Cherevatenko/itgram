@@ -37,3 +37,8 @@ include(":itgram-stubs")
 include(":itgram-app-common")
 include(":itgram-app-spring")
 include(":itgram-app-rabbit")
+
+include(":itgram-repo-common")
+include(":itgram-repo-inmemory")
+include(":itgram-repo-stubs")
+include(":itgram-repo-tests")

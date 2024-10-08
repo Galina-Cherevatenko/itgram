@@ -4,34 +4,29 @@ plugins {
 
 kotlin {
     sourceSets {
-        all { languageSettings.optIn("kotlin.RequiresOptIn") }
-
-        commonMain {
+        val commonMain by getting {
             dependencies {
-                implementation(kotlin("stdlib-common"))
+                implementation(projects.itgramCommon)
+                api(projects.itgramRepoCommon)
 
-                implementation(libs.cor)
-
-                implementation(project(":itgram-common"))
-                implementation(project(":itgram-stubs"))
+                implementation(libs.coroutines.core)
+                implementation(libs.db.cache4k)
+                implementation(libs.uuid)
             }
         }
-        commonTest {
+        val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
-
-                api(libs.coroutines.test)
                 implementation(projects.itgramRepoTests)
-                implementation(projects.itgramRepoInmemory)
             }
         }
-        jvmMain {
+        val jvmMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-jdk8"))
             }
         }
-        jvmTest {
+        val jvmTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
             }
