@@ -4,8 +4,10 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import ru.itgram.common.models.MkplPublication
 import ru.itgram.common.models.MkplPublicationId
+import ru.itgram.common.models.MkplPublicationLock
 import ru.itgram.common.models.MkplUserId
 import ru.itgram.common.repo.*
+import ru.itgram.repo.common.IRepoPublicationInitializable
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.minutes
 
@@ -28,7 +30,7 @@ class PublicationRepoInMemory(
 
     override suspend fun createPublication(rq: DbPublicationRequest): IDbPublicationResponse = tryPublicationMethod {
         val key = randomUuid()
-        val publication = rq.publication.copy(id = MkplPublicationId(key))
+        val publication = rq.publication.copy(id = MkplPublicationId(key), lock = MkplPublicationLock(randomUuid()))
         val entity = PublicationEntity(publication)
         mutex.withLock {
             cache.put(key, entity)

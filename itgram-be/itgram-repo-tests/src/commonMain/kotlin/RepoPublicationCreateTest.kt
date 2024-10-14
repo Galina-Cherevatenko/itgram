@@ -1,9 +1,9 @@
 package ru.itgram
 
-import IRepoPublicationInitializable
 import ru.itgram.common.models.*
 import ru.itgram.common.repo.DbPublicationRequest
 import ru.itgram.common.repo.DbPublicationResponseOk
+import ru.itgram.repo.common.IRepoPublicationInitializable
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertIs

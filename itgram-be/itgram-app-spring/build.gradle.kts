@@ -35,6 +35,7 @@ dependencies {
     // db
     implementation(projects.itgramRepoStubs)
     implementation(projects.itgramRepoInmemory)
+    implementation(projects.itgramRepoPostgres)
     testImplementation(projects.itgramRepoCommon)
     testImplementation(projects.itgramStubs)
 

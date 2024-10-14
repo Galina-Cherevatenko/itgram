@@ -16,6 +16,7 @@ fun ICorChainDsl<MkplContext>.repoPrepareUpdate(title: String) = worker {
             description = publicationValidated.description
             publicationCategory = publicationValidated.publicationCategory
             visibility = publicationValidated.visibility
+            lock = publicationValidated.lock
         }
     }
 }

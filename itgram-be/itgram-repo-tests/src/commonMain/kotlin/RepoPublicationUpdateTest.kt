@@ -13,6 +13,8 @@ abstract class RepoPublicationUpdateTest {
     abstract val repo: IRepoPublication
     protected open val updateSucc = initObjects[0]
     protected val updateIdNotFound = MkplPublicationId("publication-repo-update-not-found")
+    protected val lockBad = MkplPublicationLock("20000000-0000-0000-0000-000000000009")
+    protected val lockNew = MkplPublicationLock("20000000-0000-0000-0000-000000000002")
 
     private val reqUpdateSucc by lazy {
         MkplPublication(
@@ -22,6 +24,7 @@ abstract class RepoPublicationUpdateTest {
             ownerId = MkplUserId("owner-123"),
             visibility = MkplVisibility.VISIBLE_TO_GROUP,
             publicationCategory = MkplPublicationCategory.START,
+            lock = initObjects.first().lock,
         )
     }
     private val reqUpdateNotFound = MkplPublication(
@@ -31,6 +34,7 @@ abstract class RepoPublicationUpdateTest {
         ownerId = MkplUserId("owner-123"),
         visibility = MkplVisibility.VISIBLE_TO_GROUP,
         publicationCategory = MkplPublicationCategory.START,
+        lock = initObjects.first().lock
     )
 
     @Test
@@ -41,6 +45,7 @@ abstract class RepoPublicationUpdateTest {
         assertEquals(reqUpdateSucc.title, result.data.title)
         assertEquals(reqUpdateSucc.description, result.data.description)
         assertEquals(reqUpdateSucc.publicationCategory, result.data.publicationCategory)
+        assertEquals(lockNew, result.data.lock)
     }
 
     @Test

@@ -1,7 +1,6 @@
 package ru.itgram.app.spring.repo
 
 import PublicationRepoInMemory
-import PublicationRepoInitialized
 import org.junit.jupiter.api.BeforeEach
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
@@ -13,13 +12,19 @@ import ru.itgram.common.repo.IRepoPublication
 import com.ninjasquad.springmockk.MockkBean
 import io.mockk.coEvery
 import io.mockk.slot
+import org.springframework.context.annotation.Import
 import ru.itgram.common.models.MkplPublicationCategory
 import ru.itgram.common.repo.DbPublicationFilterRequest
 import ru.itgram.common.repo.DbPublicationIdRequest
 import ru.itgram.common.repo.DbPublicationRequest
+import ru.itgram.repo.common.PublicationRepoInitialized
 import kotlin.test.Test
 
-@WebFluxTest(PublicationController::class, PublicationConfig::class)
+@WebFluxTest(
+    PublicationController::class, PublicationConfig::class,
+    properties = ["spring.main.allow-bean-definition-overriding=true"]
+)
+@Import(RepoInMemoryConfig::class)
 internal class PublicationRepoInMemoryTest : PublicationRepoBaseTest() {
     @Autowired
     override lateinit var webClient: WebTestClient

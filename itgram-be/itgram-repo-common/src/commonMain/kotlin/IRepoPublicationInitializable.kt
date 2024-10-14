@@ -1,6 +1,8 @@
+package ru.itgram.repo.common
+
 import ru.itgram.common.models.MkplPublication
 import ru.itgram.common.repo.IRepoPublication
 
 interface IRepoPublicationInitializable: IRepoPublication {
-    fun save(ads: Collection<MkplPublication>): Collection<MkplPublication>
+    fun save(pudblications: Collection<MkplPublication>): Collection<MkplPublication>
 }

@@ -1,7 +1,9 @@
+package ru.itgram.repo.common
+
 import ru.itgram.common.models.MkplPublication
 
 class PublicationRepoInitialized(
-    private val repo: IRepoPublicationInitializable,
+    val repo: IRepoPublicationInitializable,
     initObjects: Collection<MkplPublication> = emptyList(),
 ) : IRepoPublicationInitializable by repo {
     @Suppress("unused")

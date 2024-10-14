@@ -1,10 +1,10 @@
 package ru.itgram.biz.validation
 
 import PublicationRepoInMemory
-import PublicationRepoInitialized
 import ru.itgram.biz.MkplPublicationProcessor
 import ru.itgram.common.MkplCorSettings
 import ru.itgram.common.models.MkplCommand
+import ru.itgram.repo.common.PublicationRepoInitialized
 
 abstract class BaseBizValidationTest {
     protected abstract val command: MkplCommand
