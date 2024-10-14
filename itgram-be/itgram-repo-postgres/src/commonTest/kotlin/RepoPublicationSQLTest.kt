@@ -47,7 +47,7 @@ class RepoPublicationSQLDeleteTest : RepoPublicationDeleteTest() {
     fun tearDown() = repo.clear()
 }
 
-class RepoAdSQLSearchTest : RepoPublicationSearchTest() {
+class RepoPublicationSQLSearchTest : RepoPublicationSearchTest() {
     override val repo: IRepoPublication = SqlTestCompanion.repoUnderTestContainer(initObjects)
     @AfterTest
     fun tearDown() = repo.clear()

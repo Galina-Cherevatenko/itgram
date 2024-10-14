@@ -33,6 +33,6 @@ sealed class PgPublicationCategoryValue(enVal: String): PGobject() {
     }
 }
 
-object PgPublicationCategoryPost: PgPublicationCategoryValue(SqlFields.PUBLICATION_CATEGORY_START)
+object PgPublicationCategoryPost: PgPublicationCategoryValue(SqlFields.PUBLICATION_CATEGORY_POST)
 object PgPublicationCategoryAd: PgPublicationCategoryValue(SqlFields.PUBLICATION_CATEGORY_AD)
 object PgPublicationCategoryStart: PgPublicationCategoryValue(SqlFields.PUBLICATION_CATEGORY_START)

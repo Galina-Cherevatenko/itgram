@@ -16,18 +16,10 @@ abstract class RepoPublicationSearchTest {
     protected open val initializedObjects: List<MkplPublication> = initObjects
 
     @Test
-    fun searchOwner() = runRepoTest {
-        val result = repo.searchPublication(DbPublicationFilterRequest(ownerId = searchOwnerId))
+    fun searchPublicationCategory() = runRepoTest {
+        val result = repo.searchPublication(DbPublicationFilterRequest(publicationCategory = MkplPublicationCategory.POST))
         assertIs<DbPublicationsResponseOk>(result)
-        val expected = listOf(initializedObjects[1], initializedObjects[3]).sortedBy { it.id.asString() }
-        assertEquals(expected, result.data.sortedBy { it.id.asString() })
-    }
-
-    @Test
-    fun searchDealSide() = runRepoTest {
-        val result = repo.searchPublication(DbPublicationFilterRequest(publicationCategory = MkplPublicationCategory.START))
-        assertIs<DbPublicationsResponseOk>(result)
-        val expected = listOf(initializedObjects[2], initializedObjects[4]).sortedBy { it.id.asString() }
+        val expected = listOf(initializedObjects[0])
         assertEquals(expected, result.data.sortedBy { it.id.asString() })
     }
 
@@ -35,7 +27,7 @@ abstract class RepoPublicationSearchTest {
 
         val searchOwnerId = MkplUserId("owner-124")
         override val initObjects: List<MkplPublication> = listOf(
-            createInitTestModel("publication1"),
+            createInitTestModel("publication1", publicationCategory = MkplPublicationCategory.POST),
             createInitTestModel("publication2", ownerId = searchOwnerId),
             createInitTestModel("publication3", publicationCategory = MkplPublicationCategory.START),
             createInitTestModel("publication4", ownerId = searchOwnerId),
