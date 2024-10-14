@@ -14,11 +14,12 @@ import kotlin.test.assertNotNull
 abstract class RepoPublicationDeleteTest {
     abstract val repo: IRepoPublication
     protected open val deleteSucc = initObjects[0]
-    protected open val notFoundId = MkplPublicationId("publication-repo-delete-notFound")
+    protected open val notFoundId = MkplPublicationId("ad-repo-delete-notFound")
 
     @Test
     fun deleteSuccess() = runRepoTest {
-        val result = repo.deletePublication(DbPublicationIdRequest(deleteSucc.id))
+        val lockOld = deleteSucc.lock
+        val result = repo.deletePublication(DbPublicationIdRequest(deleteSucc.id, lock = lockOld))
         assertIs<DbPublicationResponseOk>(result)
         assertEquals(deleteSucc.title, result.data.title)
         assertEquals(deleteSucc.description, result.data.description)
@@ -26,7 +27,7 @@ abstract class RepoPublicationDeleteTest {
 
     @Test
     fun deleteNotFound() = runRepoTest {
-        val result = repo.readPublication(DbPublicationIdRequest(notFoundId))
+        val result = repo.readPublication(DbPublicationIdRequest(notFoundId, lock = lockOld))
 
         assertIs<DbPublicationResponseErr>(result)
         val error = result.errors.find { it.code == "repo-not-found" }
@@ -36,6 +37,8 @@ abstract class RepoPublicationDeleteTest {
     companion object : BaseInitPublications("delete") {
         override val initObjects: List<MkplPublication> = listOf(
             createInitTestModel("delete"),
+            createInitTestModel("deleteLock"),
         )
     }
 }
+
