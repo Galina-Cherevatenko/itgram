@@ -1,4 +1,5 @@
 import ru.itgram.*
+import ru.itgram.repo.common.PublicationRepoInitialized
 
 class PublicationRepoInMemoryTest: RepoPublicationCreateTest() {
     override val repo = PublicationRepoInitialized(
