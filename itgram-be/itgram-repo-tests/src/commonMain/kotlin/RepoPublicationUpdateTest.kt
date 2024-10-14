@@ -14,7 +14,7 @@ abstract class RepoPublicationUpdateTest {
     protected open val updateSucc = initObjects[0]
     protected val updateIdNotFound = MkplPublicationId("publication-repo-update-not-found")
     protected val lockBad = MkplPublicationLock("20000000-0000-0000-0000-000000000009")
-    protected val lockNew = MkplPublicationLock("20000000-0000-0000-0000-000000000002")
+    protected val lockNew = MkplPublicationLock("20000000-0000-0000-0000-000000000001")
 
     private val reqUpdateSucc by lazy {
         MkplPublication(
