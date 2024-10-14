@@ -8,7 +8,7 @@ abstract class BaseInitPublications(private val op: String): IInitObjects<MkplPu
     fun createInitTestModel(
         suf: String,
         ownerId: MkplUserId = MkplUserId("owner-123"),
-        publicationCategory: MkplPublicationCategory = MkplPublicationCategory.POST,
+        publicationCategory: MkplPublicationCategory = MkplPublicationCategory.START,
         lock: MkplPublicationLock = lockOld
     ) = MkplPublication(
         id = MkplPublicationId("publication-repo-$op-$suf"),
