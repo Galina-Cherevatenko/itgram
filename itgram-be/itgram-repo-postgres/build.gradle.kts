@@ -134,7 +134,7 @@ tasks {
                         arguments = mapOf(
                             "logLevel" to "info",
                             "searchPath" to layout.projectDirectory.dir("migrations").asFile.toString(),
-                            "changelogFile" to "changelog-v0.0.1.sql",
+                            "changelogFile" to "changelog-v1.sql",
                             "url" to "jdbc:postgresql://localhost:$pgPort/$pgDbName",
                             "username" to pgUsername,
                             "password" to pgPassword,
