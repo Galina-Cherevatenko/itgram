@@ -21,11 +21,11 @@ class PublicationRepoInMemory(
         .expireAfterWrite(ttl)
         .build()
 
-    override fun save(ads: Collection<MkplPublication>) = ads.map { ad ->
-        val entity = PublicationEntity(ad)
+    override fun save(publications: Collection<MkplPublication>) = publications.map { publication ->
+        val entity = PublicationEntity(publication)
         require(entity.id != null)
         cache.put(entity.id, entity)
-        ad
+        publication
     }
 
     override suspend fun createPublication(rq: DbPublicationRequest): IDbPublicationResponse = tryPublicationMethod {

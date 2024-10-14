@@ -7,9 +7,9 @@ import org.testcontainers.containers.wait.strategy.Wait
 
 @Suppress("unused")
 internal class BuildPluginPgContainer : Plugin<Project> {
-    val pgDbName = "marketplace_pudblications"
+    val pgDbName = "itgram_pudblications"
     val pgUsername = "postgres"
-    val pgPassword = "marketplace-pass"
+    val pgPassword = "itgram-pass"
 
     private val pgContainer = PostgreSQLContainer<Nothing>("postgres:latest").apply {
         withUsername(pgUsername)

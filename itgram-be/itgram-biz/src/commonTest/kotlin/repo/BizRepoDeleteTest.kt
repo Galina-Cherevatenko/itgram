@@ -47,7 +47,7 @@ class BizRepoDeleteTest {
 
     @Test
     fun repoDeleteSuccessTest() = runTest {
-        val adToUpdate = MkplPublication(
+        val publicationToUpdate = MkplPublication(
             id = MkplPublicationId("123"),
             lock = MkplPublicationLock("123"),
         )
@@ -55,7 +55,7 @@ class BizRepoDeleteTest {
             command = command,
             state = MkplState.NONE,
             workMode = MkplWorkMode.TEST,
-            publicationRequest = adToUpdate,
+            publicationRequest = publicationToUpdate,
         )
         processor.exec(ctx)
         assertEquals(MkplState.FINISHING, ctx.state)

@@ -33,10 +33,10 @@ actual class RepoPublicationSql actual constructor(
         publicationTable.deleteAll()
     }
 
-    private fun saveObj(ad: MkplPublication): MkplPublication = transaction(conn) {
+    private fun saveObj(publication: MkplPublication): MkplPublication = transaction(conn) {
         val res = publicationTable
             .insert {
-                to(it, ad, randomUuid)
+                to(it, publication, randomUuid)
             }
             .resultedValues
             ?.map { publicationTable.from(it) }

@@ -8,5 +8,5 @@ data class DbPublicationIdRequest(
     val id: MkplPublicationId,
     val lock: MkplPublicationLock = MkplPublicationLock.NONE,
 ) {
-    constructor(ad: MkplPublication): this(ad.id, ad.lock)
+    constructor(publication: MkplPublication): this(publication.id, publication.lock)
 }
