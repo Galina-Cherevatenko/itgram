@@ -1,0 +1,25 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/v1/publication/read"
+  },
+
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "responseType": "read",
+      "result": "success",
+      "ad": {
+        "id": "{{{jsonPath request.body '$.publication.id'}}}",
+        "title": "title",
+        "description": "description",
+        "adType": "demand",
+        "visibility": "public"
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "transformers": ["response-template"]
+  }
+}
