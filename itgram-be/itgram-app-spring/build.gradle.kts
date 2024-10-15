@@ -32,10 +32,18 @@ dependencies {
     // biz
     implementation(project(":itgram-biz"))
 
+    // db
+    implementation(projects.itgramRepoStubs)
+    implementation(projects.itgramRepoInmemory)
+    implementation(projects.itgramRepoPostgres)
+    testImplementation(projects.itgramRepoCommon)
+    testImplementation(projects.itgramStubs)
+
     // tests
     testImplementation(kotlin("test-junit5"))
     testImplementation(libs.spring.test)
     testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.spring.mockk)
 
     // stubs
     testImplementation(project(":itgram-stubs"))

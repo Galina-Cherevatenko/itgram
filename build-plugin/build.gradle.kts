@@ -12,6 +12,10 @@ gradlePlugin {
             id = "build-kmp"
             implementationClass = "ru.otus.itgram.plugin.BuildPluginMultiplatform"
         }
+        register("build-pgContainer") {
+            id = "build-pgContainer"
+            implementationClass = "ru.otus.itgram.plugin.BuildPluginPgContainer"
+        }
     }
 }
 
@@ -25,4 +29,8 @@ dependencies {
 
     implementation(libs.plugin.kotlin)
     implementation(libs.plugin.binaryCompatibilityValidator)
+
+    implementation(libs.testcontainers.postgres)
+    implementation(libs.testcontainers.core)
+    implementation(libs.db.postgres)
 }

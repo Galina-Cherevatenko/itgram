@@ -73,32 +73,32 @@ private fun MkplPublicationPermissionClient.toTransportPublication() = when (thi
     MkplPublicationPermissionClient.DELETE -> PublicationPermissions.DELETE
 }
 
-private fun MkplVisibility.toTransportPublication(): PublicationVisibility? = when (this) {
+internal fun MkplVisibility.toTransportPublication(): PublicationVisibility? = when (this) {
     MkplVisibility.VISIBLE_PUBLIC -> PublicationVisibility.PUBLIC
     MkplVisibility.VISIBLE_TO_GROUP -> PublicationVisibility.REGISTERED_ONLY
     MkplVisibility.VISIBLE_TO_OWNER -> PublicationVisibility.OWNER_ONLY
     MkplVisibility.NONE -> null
 }
 
-private fun MkplPublicationCategory.toTransportPublication(): PublicationCategory? = when (this) {
+internal fun MkplPublicationCategory.toTransportPublication(): PublicationCategory? = when (this) {
     MkplPublicationCategory.POST -> PublicationCategory.POST
     MkplPublicationCategory.AD -> PublicationCategory.AD
     MkplPublicationCategory.START -> PublicationCategory.START
 }
 
-private fun List<MkplError>.toTransportErrors(): List<Error>? = this
+internal fun List<MkplError>.toTransportErrors(): List<Error>? = this
     .map { it.toTransportPublication() }
     .toList()
     .takeIf { it.isNotEmpty() }
 
-private fun MkplError.toTransportPublication() = Error(
+internal fun MkplError.toTransportPublication() = Error(
     code = code.takeIf { it.isNotBlank() },
     group = group.takeIf { it.isNotBlank() },
     field = field.takeIf { it.isNotBlank() },
     message = message.takeIf { it.isNotBlank() },
 )
 
-private fun MkplState.toResult(): ResponseResult? = when (this) {
+internal fun MkplState.toResult(): ResponseResult? = when (this) {
     MkplState.RUNNING -> ResponseResult.SUCCESS
     MkplState.FAILING -> ResponseResult.ERROR
     MkplState.FINISHING -> ResponseResult.SUCCESS

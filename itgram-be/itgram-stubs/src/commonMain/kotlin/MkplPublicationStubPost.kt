@@ -9,6 +9,7 @@ object MkplPublicationStubPost {
             ownerId = MkplUserId("user-1"),
             publicationCategory = MkplPublicationCategory.POST,
             visibility = MkplVisibility.VISIBLE_PUBLIC,
+            lock = MkplPublicationLock("123"),
             permissionsClient = mutableSetOf(
                 MkplPublicationPermissionClient.READ,
                 MkplPublicationPermissionClient.UPDATE,

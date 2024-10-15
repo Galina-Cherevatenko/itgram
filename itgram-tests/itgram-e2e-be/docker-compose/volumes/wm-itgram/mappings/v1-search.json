@@ -1,0 +1,32 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/v1/publication/search"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "responseType": "search",
+      "result": "success",
+      "ads": [
+        {
+          "id": "123",
+          "title": "title",
+          "description": "description",
+          "publicationCategory": "post",
+          "visibility": "public"
+        },
+        {
+          "id": "124",
+          "title": "title2",
+          "description": "description2",
+          "publicationCategory": "post",
+          "visibility": "public"
+        }
+      ]
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -13,14 +13,7 @@ fun validationLockCorrect(command: MkplCommand, processor: MkplPublicationProces
         command = command,
         state = MkplState.NONE,
         workMode = MkplWorkMode.TEST,
-        publicationRequest = MkplPublication(
-            id = MkplPublicationId("123-234-abc-ABC"),
-            title = "abc",
-            description = "abc",
-            publicationCategory = MkplPublicationCategory.POST,
-            visibility = MkplVisibility.VISIBLE_PUBLIC,
-            lock = MkplPublicationLock("123-234-abc-ABC"),
-        ),
+        publicationRequest = MkplPublicationStub.get(),
     )
     processor.exec(ctx)
     assertEquals(0, ctx.errors.size)
@@ -32,14 +25,9 @@ fun validationLockTrim(command: MkplCommand, processor: MkplPublicationProcessor
         command = command,
         state = MkplState.NONE,
         workMode = MkplWorkMode.TEST,
-        publicationRequest = MkplPublication(
-            id = MkplPublicationId("123-234-abc-ABC"),
-            title = "abc",
-            description = "abc",
-            publicationCategory = MkplPublicationCategory.POST,
-            visibility = MkplVisibility.VISIBLE_PUBLIC,
-            lock = MkplPublicationLock(" \n\t 123-234-abc-ABC \n\t "),
-        ),
+        publicationRequest = MkplPublicationStub.prepareResult {
+            lock = MkplPublicationLock(" \n\t 123-234-abc-ABC \n\t ")
+        },
     )
     processor.exec(ctx)
     assertEquals(0, ctx.errors.size)

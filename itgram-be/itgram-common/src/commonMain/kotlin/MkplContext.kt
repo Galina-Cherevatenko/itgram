@@ -2,6 +2,7 @@ package ru.itgram.common
 
 import kotlinx.datetime.Instant
 import ru.itgram.common.models.*
+import ru.itgram.common.repo.IRepoPublication
 import ru.itgram.common.stubs.MkplStubs
 
 data class MkplContext(
@@ -24,7 +25,12 @@ data class MkplContext(
     var publicationValidated: MkplPublication = MkplPublication(),
     var publicationFilterValidated: MkplPublicationFilter = MkplPublicationFilter(),
 
+    var publicationRepo: IRepoPublication = IRepoPublication.NONE,
+    var publicationRepoRead: MkplPublication = MkplPublication(), // То, что прочитали из репозитория
+    var publicationRepoPrepare: MkplPublication = MkplPublication(), // То, что готовим для сохранения в БД
+    var publicationRepoDone: MkplPublication = MkplPublication(),  // Результат, полученный из БД
+    var publicationsRepoDone: MutableList<MkplPublication> = mutableListOf(),
+
     var publicationResponse: MkplPublication = MkplPublication(),
     var publicationsResponse: MutableList<MkplPublication> = mutableListOf(),
-
-    )
+)
