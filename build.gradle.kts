@@ -20,8 +20,17 @@ subprojects {
 }
 
 tasks {
+    val buildImages: Task by creating {
+        dependsOn(gradle.includedBuild("itgram-be").task(":buildImages"))
+    }
+    val e2eTests: Task by creating {
+        dependsOn(gradle.includedBuild("itgram-tests").task(":e2eTests"))
+        mustRunAfter(buildImages)
+    }
+
     create("check") {
         group = "verification"
-        dependsOn(gradle.includedBuild("itgram-be").task(":check"))
+        dependsOn(buildImages)
+        dependsOn(e2eTests)
     }
 }
