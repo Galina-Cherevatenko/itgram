@@ -22,6 +22,8 @@ kotlin {
                 implementation(kotlin("test-annotations-common"))
 
                 api(libs.coroutines.test)
+                implementation(projects.itgramRepoTests)
+                implementation(projects.itgramRepoInmemory)
             }
         }
         jvmMain {

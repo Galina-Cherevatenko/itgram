@@ -1,0 +1,25 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/v1/publication/create"
+  },
+
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "responseType": "create",
+      "result": "success",
+      "ad": {
+        "id": "123",
+        "title": "{{{jsonPath request.body '$.publication.title'}}}",
+        "description": "description",
+        "publicationCategory": "{{{jsonPath request.body '$.publication.publicationCategory'}}}",
+        "visibility": "public"
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "transformers": ["response-template"]
+  }
+}

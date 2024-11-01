@@ -89,7 +89,9 @@ fun MkplContext.fromTransport(request: PublicationSearchRequest) {
 }
 
 private fun PublicationSearchFilter?.toInternal(): MkplPublicationFilter = MkplPublicationFilter(
-    searchString = this?.searchString ?: ""
+    searchString = this?.searchString ?: "",
+    ownerId = this?.ownerId?.let { MkplUserId(it) } ?: MkplUserId.NONE,
+    publicationCategory = this?.publicationCategory.fromTransport(),
 )
 
 private fun PublicationCreateObject.toInternal(): MkplPublication = MkplPublication(
