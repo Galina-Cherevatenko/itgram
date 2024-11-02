@@ -4,6 +4,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import PublicationRepoInMemory
 import PublicationRepoStub
+import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import ru.itgram.backend.repo.postgresql.RepoPublicationSql
@@ -14,6 +15,7 @@ import ru.itgram.logging.common.MpLoggerProvider
 import ru.itgram.logging.jvm.mpLoggerLogback
 
 @Suppress("unused")
+@EnableConfigurationProperties(PublicationConfigPostgres::class)
 @Configuration
 class PublicationConfig(val postgresConfig: PublicationConfigPostgres) {
 
