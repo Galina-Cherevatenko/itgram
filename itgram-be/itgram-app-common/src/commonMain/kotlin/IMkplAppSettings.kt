@@ -1,3 +1,5 @@
+package ru.itgram.app.common
+
 import ru.itgram.biz.MkplPublicationProcessor
 import ru.itgram.common.MkplCorSettings
 

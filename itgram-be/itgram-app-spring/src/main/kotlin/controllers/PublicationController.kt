@@ -2,8 +2,8 @@ package ru.itgram.app.spring.controllers
 
 import org.springframework.web.bind.annotation.*
 import ru.itgram.api.v1.models.*
+import ru.itgram.app.common.controllerHelper
 import ru.itgram.app.spring.config.MkplAppSettings
-import controllerHelper
 import src.main.kotlin.fromTransport
 import src.main.kotlin.toTransportPublication
 import kotlin.reflect.KClass

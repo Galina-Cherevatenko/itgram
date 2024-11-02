@@ -1,3 +1,5 @@
+package ru.itgram.app.common
+
 import kotlinx.datetime.Clock
 import ru.itgram.common.MkplContext
 import ru.itgram.common.helpers.asMkplError
@@ -32,11 +34,15 @@ suspend inline fun <T> IMkplAppSettings.controllerHelper(
         logger.error(
             msg = "Request $logId failed for ${clazz.simpleName}",
             marker = "BIZ",
-            data = ctx.toLog(logId)
+            data = ctx.toLog(logId),
+            e = e,
         )
         ctx.state = MkplState.FAILING
         ctx.errors.add(e.asMkplError())
         processor.exec(ctx)
+        if (ctx.command == MkplCommand.NONE) {
+            ctx.command = MkplCommand.READ
+        }
         ctx.toResponse()
     }
 }
