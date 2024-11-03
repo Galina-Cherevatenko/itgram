@@ -3,8 +3,8 @@
 KCHOST=http://localhost:8080
 REALM=itgram
 CLIENT_ID=itgram
-UNAME=otus-test
-PASSWORD=otus
+UNAME=itgram
+PASSWORD=itgram
 
 ACCESS_TOKEN=`curl \
   -d "client_id=$CLIENT_ID" \

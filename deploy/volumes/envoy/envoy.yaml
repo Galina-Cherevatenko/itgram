@@ -52,8 +52,6 @@ static_resources:
                     rules:
                       - match: { prefix: /v1/publication/ }
                         requires: { provider_name: keycloak_provider }
-                      - match: { prefix: /v2/publication/ }
-                        requires: { provider_name: keycloak_provider }
                 - name: envoy.filters.http.router
                   typed_config:
                     "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router

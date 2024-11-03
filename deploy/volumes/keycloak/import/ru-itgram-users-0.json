@@ -3,7 +3,7 @@
   "users" : [ {
     "id" : "638647df-d9e4-4759-8748-6f99ac220d11",
     "createdTimestamp" : 1706964619142,
-    "username" : "ru-itgram-test",
+    "username" : "itgram",
     "enabled" : true,
     "totp" : false,
     "emailVerified" : true,
