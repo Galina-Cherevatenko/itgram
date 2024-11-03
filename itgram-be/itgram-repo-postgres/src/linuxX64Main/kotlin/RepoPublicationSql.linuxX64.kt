@@ -1,13 +1,6 @@
 package ru.itgram.backend.repo.postgresql
 
-import io.github.moreirasantos.pgkn.PostgresDriver
-import io.github.moreirasantos.pgkn.resultset.ResultSet
-import kotlinx.coroutines.runBlocking
-import ru.itgram.backend.repo.postgresql.SqlFields.quoted
 import ru.itgram.common.models.MkplPublication
-import ru.itgram.common.models.MkplPublicationId
-import ru.itgram.common.models.MkplPublicationLock
-import ru.itgram.common.models.MkplUserId
 import ru.itgram.common.repo.*
 import ru.itgram.repo.common.IRepoPublicationInitializable
 
