@@ -14,3 +14,4 @@ rootProject.name = "itgram"
 includeBuild("itgram-be")
 includeBuild("itgram-libs")
 includeBuild("itgram-tests")
+includeBuild("pgkn")

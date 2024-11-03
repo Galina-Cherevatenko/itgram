@@ -2,7 +2,7 @@
 
 KCHOST=http://localhost:8080
 REALM=itgram
-CLIENT_ID=itgram-service
+CLIENT_ID=itgram
 UNAME=otus-test
 PASSWORD=otus
 
