@@ -4,8 +4,8 @@ import apiV1Mapper
 import com.rabbitmq.client.Channel
 import com.rabbitmq.client.Delivery
 import config.MkplAppSettings
-import controllerHelper
 import ru.itgram.api.v1.models.IRequest
+import ru.itgram.app.common.controllerHelper
 import ru.itgram.common.MkplContext
 import ru.itgram.common.helpers.asMkplError
 import ru.itgram.common.models.MkplState

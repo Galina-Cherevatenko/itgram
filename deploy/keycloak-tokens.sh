@@ -1,10 +1,10 @@
 #!/bin/bash
 
 KCHOST=http://localhost:8080
-REALM=itgram
-CLIENT_ID=itgram
-UNAME=itgram
-PASSWORD=itgram
+REALM=otus-marketplace
+CLIENT_ID=otus-marketplace-service
+UNAME=otus-test
+PASSWORD=otus
 
 ACCESS_TOKEN=`curl \
   -d "client_id=$CLIENT_ID" \

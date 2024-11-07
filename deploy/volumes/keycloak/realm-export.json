@@ -1,7 +1,7 @@
 {
-  "id": "ru-itgram",
-  "realm": "ru-itgram",
-  "displayName": "Itgram",
+  "id": "otus-marketplace",
+  "realm": "otus-marketplace",
+  "displayName": "Otus Marketplace",
   "notBefore": 0,
   "defaultSignatureAlgorithm": "RS256",
   "revokeRefreshToken": false,
@@ -48,7 +48,7 @@
     "realm": [
       {
         "id": "ec06542b-8c8a-4fa1-a605-1594b17250b4",
-        "name": "default-roles-ru-itgram",
+        "name": "default-roles-otus-marketplace",
         "description": "${role_default-roles}",
         "composite": true,
         "composites": {
@@ -64,7 +64,7 @@
           }
         },
         "clientRole": false,
-        "containerId": "ru-itgram",
+        "containerId": "otus-marketplace",
         "attributes": {}
       },
       {
@@ -73,7 +73,7 @@
         "description": "${role_uma_authorization}",
         "composite": false,
         "clientRole": false,
-        "containerId": "ru-itgram",
+        "containerId": "otus-marketplace",
         "attributes": {}
       },
       {
@@ -82,12 +82,12 @@
         "description": "${role_offline-access}",
         "composite": false,
         "clientRole": false,
-        "containerId": "ru-itgram",
+        "containerId": "otus-marketplace",
         "attributes": {}
       }
     ],
     "client": {
-      "ru-itgram-service": [
+      "otus-marketplace-service": [
         {
           "id": "f7e5668b-1f4d-4dff-aa98-9e5225b43e7d",
           "name": "USER",
@@ -411,7 +411,7 @@
       "path": "/USER",
       "attributes": {},
       "realmRoles": [
-        "default-roles-ru-itgram"
+        "default-roles-otus-marketplace"
       ],
       "clientRoles": {},
       "subGroups": []
@@ -419,11 +419,11 @@
   ],
   "defaultRole": {
     "id": "ec06542b-8c8a-4fa1-a605-1594b17250b4",
-    "name": "default-roles-ru-itgram",
+    "name": "default-roles-otus-marketplace",
     "description": "${role_default-roles}",
     "composite": true,
     "clientRole": false,
-    "containerId": "ru-itgram"
+    "containerId": "otus-marketplace"
   },
   "defaultGroups": [
     "/USER"
@@ -473,9 +473,9 @@
       ]
     },
     {
-      "clientScope": "ru-itgram",
+      "clientScope": "otus-marketplace",
       "roles": [
-        "default-roles-ru-itgram"
+        "default-roles-otus-marketplace"
       ]
     }
   ],
@@ -495,13 +495,13 @@
       "clientId": "account",
       "name": "${client_account}",
       "rootUrl": "${authBaseUrl}",
-      "baseUrl": "/realms/ru-itgram/account/",
+      "baseUrl": "/realms/otus-marketplace/account/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/realms/ru-itgram/account/*"
+        "/realms/otus-marketplace/account/*"
       ],
       "webOrigins": [],
       "notBefore": 0,
@@ -536,13 +536,13 @@
       "clientId": "account-console",
       "name": "${client_account-console}",
       "rootUrl": "${authBaseUrl}",
-      "baseUrl": "/realms/ru-itgram/account/",
+      "baseUrl": "/realms/otus-marketplace/account/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/realms/ru-itgram/account/*"
+        "/realms/otus-marketplace/account/*"
       ],
       "webOrigins": [],
       "notBefore": 0,
@@ -660,7 +660,7 @@
     },
     {
       "id": "96b7d5f3-b04b-4460-9f7a-faf964c583a5",
-      "clientId": "ru-itgram-service",
+      "clientId": "otus-marketplace-service",
       "rootUrl": "http://localhost:8080",
       "surrogateAuthRequired": false,
       "enabled": true,
@@ -792,13 +792,13 @@
       "clientId": "security-admin-console",
       "name": "${client_security-admin-console}",
       "rootUrl": "${authAdminUrl}",
-      "baseUrl": "/admin/ru-itgram/console/",
+      "baseUrl": "/admin/otus-marketplace/console/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/admin/ru-itgram/console/*"
+        "/admin/otus-marketplace/console/*"
       ],
       "webOrigins": [
         "+"
@@ -1294,7 +1294,7 @@
     },
     {
       "id": "d51fdf5d-d297-4b3b-ac78-f002c8517398",
-      "name": "ru-itgram",
+      "name": "otus-marketplace",
       "protocol": "openid-connect",
       "attributes": {
         "include.in.token.scope": "true",

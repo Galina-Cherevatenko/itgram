@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   app-spring:
-    image: itgram-app-spring:0.0.1
+    image: itgram-app-spring:1.0-SNAPSHOT
     ports:
       - "8080:8080"
     environment:

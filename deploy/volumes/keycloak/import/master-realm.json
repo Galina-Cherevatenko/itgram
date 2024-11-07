@@ -54,7 +54,7 @@
       "composites" : {
         "realm" : [ "create-realm" ],
         "client" : {
-          "ru-itgram-realm" : [ "manage-clients", "impersonation", "query-users", "view-authorization", "view-clients", "view-events", "query-groups", "manage-events", "view-users", "manage-users", "manage-authorization", "view-identity-providers", "manage-identity-providers", "manage-realm", "query-realms", "create-client", "query-clients", "view-realm" ],
+          "otus-marketplace-realm" : [ "manage-clients", "impersonation", "query-users", "view-authorization", "view-clients", "view-events", "query-groups", "manage-events", "view-users", "manage-users", "manage-authorization", "view-identity-providers", "manage-identity-providers", "manage-realm", "query-realms", "create-client", "query-clients", "view-realm" ],
           "master-realm" : [ "create-client", "manage-realm", "manage-users", "view-clients", "view-realm", "manage-clients", "view-authorization", "query-groups", "manage-identity-providers", "view-users", "manage-authorization", "view-identity-providers", "impersonation", "query-users", "view-events", "query-realms", "query-clients", "manage-events" ]
         }
       },
@@ -102,7 +102,7 @@
     } ],
     "client" : {
       "security-admin-console" : [ ],
-      "ru-itgram-realm" : [ {
+      "otus-marketplace-realm" : [ {
         "id" : "5eee687b-e738-46b6-89e2-35be4ced4571",
         "name" : "manage-clients",
         "description" : "${role_manage-clients}",
@@ -149,7 +149,7 @@
         "composite" : true,
         "composites" : {
           "client" : {
-            "ru-itgram-realm" : [ "query-groups", "query-users" ]
+            "otus-marketplace-realm" : [ "query-groups", "query-users" ]
           }
         },
         "clientRole" : true,
@@ -210,7 +210,7 @@
         "composite" : true,
         "composites" : {
           "client" : {
-            "ru-itgram-realm" : [ "query-clients" ]
+            "otus-marketplace-realm" : [ "query-clients" ]
           }
         },
         "clientRole" : true,
@@ -699,8 +699,8 @@
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
   }, {
     "id" : "9a920f1e-547d-4bb4-bd36-315abd1a342c",
-    "clientId" : "ru-itgram-realm",
-    "name" : "ru-itgram Realm",
+    "clientId" : "otus-marketplace-realm",
+    "name" : "otus-marketplace Realm",
     "surrogateAuthRequired" : false,
     "enabled" : true,
     "alwaysDisplayInConsole" : false,

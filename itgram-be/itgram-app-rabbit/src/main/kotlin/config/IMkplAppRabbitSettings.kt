@@ -1,6 +1,6 @@
 package config
 
-import IMkplAppSettings
+import ru.itgram.app.common.IMkplAppSettings
 
 interface IMkplAppRabbitSettings: IMkplAppSettings {
     val rabbit: RabbitConfig

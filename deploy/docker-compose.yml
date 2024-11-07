@@ -12,6 +12,53 @@
 
 #version: '3'
 services:
+  app-spring:
+    image: itgram-app-spring:1.0-SNAPSHOT
+    ports:
+      - "8080:8080"
+    environment:
+      DB_TYPE_PROD: "psql"
+      MKPLADS_HOST: "psql"
+      MKPLADS_PORT: 5432
+      MKPLADS_DB: "itgram_publications"
+      MKPLADS_USER: "postgres"
+      MKPLADS_PASS: "itgram-pass"
+    depends_on:
+      fluent-bit:
+        condition: service_healthy
+      envoy:
+        condition: service_healthy
+      psql:
+        condition: service_healthy
+      liquibase:
+        condition: service_completed_successfully
+    volumes:
+      - ./volumes/nginx/default.conf:/etc/nginx/conf.d/default.conf
+
+  psql:
+    image: postgres
+    #    volumes:
+    #      - postgres_data:/var/lib/postgresql/data
+    #    ports:
+    #      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: "itgram-pass"
+      POSTGRES_USER: "postgres"
+      POSTGRES_DB: "itgram_publications"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  liquibase:
+    image: liquibase/liquibase
+    volumes:
+      - ./volumes/liquibase-psql:/liquibase/changelog
+    depends_on:
+      psql:
+        condition: service_healthy
+    command: ["--defaults-file=/liquibase/changelog/liquibase.properties", "--search-path=/liquibase/changelog", "--url=jdbc:postgresql://psql:5432/itgram_publications", "update"]
 
   fluent-bit:
     container_name: fluent-bit
@@ -24,8 +71,7 @@ services:
     environment:
       - opensearch_host=opensearch
       - opensearch_user=admin
-      - opensearch_pass=admin
-    #      - opensearch_pass=adm-Password0
+      - opensearch_pass=adm-Password0
     volumes:
       - ./volumes/fluent-bit-etc/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
       - ./volumes/fluent-bit-etc/parsers.conf:/fluent-bit/etc/parsers.conf
@@ -46,7 +92,7 @@ services:
       test:
         [
           "CMD-SHELL",
-          "curl -ku admin:admin https://localhost:9200/_cluster/health?pretty | grep status | grep -q '\\(green\\|yellow\\)'"
+          "curl -ku admin:adm-Password0 https://localhost:9200/_cluster/health?pretty | grep status | grep -q '\\(green\\|yellow\\)'"
         ]
       interval: 5s
       timeout: 5s
