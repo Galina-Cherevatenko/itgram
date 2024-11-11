@@ -23,7 +23,6 @@ dependencies {
     // Внутренние модели
     implementation(project(":itgram-common"))
     implementation(project(":itgram-app-common"))
-    implementation("ru.itgram.libs:itgram-lib-logging-logback")
 
     // v1 api
     implementation(project(":itgram-api-v1-jackson"))
@@ -67,4 +66,5 @@ tasks {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+    environment("MKPLADS_DB", "test_db")
 }

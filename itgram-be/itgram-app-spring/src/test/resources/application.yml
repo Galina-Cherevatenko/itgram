@@ -22,8 +22,7 @@ springdoc:
     urls:
       - name: v1
         url: specs-publication-v1.yaml
-
-itgram:
+marketplace:
   repository:
     test: "inmemory"
     prod: "$DB_TYPE_PROD:inmemory"
@@ -32,6 +31,6 @@ psql:
   schema: public
   database: "${MKPLADS_DB:itgram-publications}"
   host: "${MKPLADS_HOST:localhost}"
-  port: "${MKPLADS_PORT:5432}"
+  port: 5433 #"${MKPLADS_PORT:5433}"
   user: "${MKPLADS_USER:postgres}"
   password: "${MKPLADS_PASS:itgram-pass}"
