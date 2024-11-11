@@ -54,7 +54,6 @@ kotlin {
         linuxX64Main {
             dependencies {
                 implementation(kotlin("stdlib"))
-                implementation("io.github.moreirasantos:pgkn:1.1.0")
             }
         }
     }

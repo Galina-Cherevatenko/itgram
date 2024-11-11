@@ -2,35 +2,33 @@ package ru.itgram.app.spring.config
 
 import PublicationRepoInMemory
 import PublicationRepoStub
+import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import ru.itgram.backend.repo.postgresql.RepoPublicationSql
 import ru.itgram.biz.MkplPublicationProcessor
 import ru.itgram.common.MkplCorSettings
 import ru.itgram.common.repo.IRepoPublication
-import ru.itgram.logging.common.MpLoggerProvider
-import ru.itgram.logging.jvm.mpLoggerLogback
 
 @Suppress("unused")
+@EnableConfigurationProperties(PublicationConfigPostgres::class)
 @Configuration
-class PublicationConfig  {
-    @Bean
-    fun processor(corSettings: MkplCorSettings) = MkplPublicationProcessor(corSettings = corSettings)
+class PublicationConfig(val postgresConfig: PublicationConfigPostgres) {
 
     @Bean
-    fun loggerProvider(): MpLoggerProvider = MpLoggerProvider { mpLoggerLogback(it) }
+    fun processor(corSettings: MkplCorSettings) = MkplPublicationProcessor(corSettings = corSettings)
 
     @Bean
     fun testRepo(): IRepoPublication = PublicationRepoInMemory()
 
     @Bean
-    fun prodRepo(): IRepoPublication = PublicationRepoInMemory()
+    fun prodRepo(): IRepoPublication = RepoPublicationSql(postgresConfig.psql)
 
     @Bean
     fun stubRepo(): IRepoPublication = PublicationRepoStub()
 
     @Bean
     fun corSettings(): MkplCorSettings = MkplCorSettings(
-        loggerProvider = loggerProvider(),
         repoTest = testRepo(),
         repoProd = prodRepo(),
         repoStub = stubRepo(),

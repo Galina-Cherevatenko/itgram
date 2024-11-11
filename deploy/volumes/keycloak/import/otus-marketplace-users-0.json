@@ -1,9 +1,9 @@
 {
-  "realm" : "ru-itgram",
+  "realm" : "otus-marketplace",
   "users" : [ {
     "id" : "638647df-d9e4-4759-8748-6f99ac220d11",
     "createdTimestamp" : 1706964619142,
-    "username" : "ru-itgram-test",
+    "username" : "otus-test",
     "enabled" : true,
     "totp" : false,
     "emailVerified" : true,
@@ -17,7 +17,7 @@
     } ],
     "disableableCredentialTypes" : [ ],
     "requiredActions" : [ ],
-    "realmRoles" : [ "default-roles-ru-itgram" ],
+    "realmRoles" : [ "default-roles-otus-marketplace" ],
     "notBefore" : 0,
     "groups" : [ "/USER" ]
   } ]

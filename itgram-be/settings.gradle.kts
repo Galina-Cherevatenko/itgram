@@ -36,6 +36,7 @@ include(":itgram-stubs")
 
 include(":itgram-app-common")
 include(":itgram-app-spring")
+include(":spring")
 include(":itgram-app-rabbit")
 
 include(":itgram-repo-common")

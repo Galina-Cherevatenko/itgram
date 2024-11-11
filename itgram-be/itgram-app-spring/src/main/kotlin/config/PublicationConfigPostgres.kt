@@ -11,7 +11,7 @@ data class PublicationConfigPostgres(
     var password: String = "itgram-pass",
     var database: String = "itgram_publications",
     var schema: String = "public",
-    var table: String = "publicationss",
+    var table: String = "publications",
 ) {
     val psql: SqlProperties = SqlProperties(
         host = host,
