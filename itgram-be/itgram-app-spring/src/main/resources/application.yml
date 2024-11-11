@@ -30,7 +30,7 @@ itgram:
 
 psql:
   schema: public
-  database: "${MKPLADS_DB:itgram-publications}"
+  database: "${MKPLADS_DB:itgram_publications}"
   host: "${MKPLADS_HOST:localhost}"
   port: "${MKPLADS_PORT:5432}"
   user: "${MKPLADS_USER:postgres}"
